@@ -1,0 +1,19 @@
+dev:
+  sessions:
+    default:
+      database: userd
+      hosts:
+        - localhost:27017
+prod:
+  sessions:
+    default:
+      database: userp
+      hosts:
+        - localhost:27017
+dev:
+  clients:
+    default:
+      database: user
+      hosts:
+        - localhost:27017
+
