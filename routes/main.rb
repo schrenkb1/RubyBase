@@ -10,7 +10,15 @@ module Sinatra
 	  field :first_name
 	  field :middle_name
 	  field :last_name
-      store_in collection: "item", database: 'map'
+          store_in collection: "item", database: 'map'
+	end
+
+	class Term
+	  include Mongoid::Document
+	  field :ud_table
+	  field :ud_column
+	  field :status
+          store_in collection: "data", database: 'glossary'
 	end
 
         def self.registered(app)
@@ -35,16 +43,16 @@ module Sinatra
 	  end
 	 
 	  app.get '/collections' do
-  	    Person.where(first_name: "Jean-Baptiste").each do |band|
-		  p band.middle_name.to_s
-		end
+  	    @values = Term.all
+            @title = "All Term Data"
+            erb :"pages/terms"
 	  end
 
           app.get '/add' do
             #@data = User.new
             #(name: "Bob", email: "asdf@asd.com")
-	    @title = "Data Added"
-	    erb :"pages/match"
+	    @title = "Add Data"
+	    erb :"pages/add_data"
           end
 
 	  app.get '/documents/?' do
@@ -55,9 +63,14 @@ module Sinatra
 	  end
 
 	  app.post '/new_document/?' do
-	    content_type :json
-	    result = params
-	    p result
+	    data = Term.new(ud_table: params['ud_table'],
+                                ud_column: params['ud_column'],
+                                status: params['status']
+                               )
+            data.save
+            puts params
+            @title = 'Data Added'
+	    erb :"pages/convert"
 	  end
 
 	end
