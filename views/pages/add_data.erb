@@ -1,0 +1,150 @@
+<form class="form-horizontal" action="/new_document" method="post">
+<fieldset>
+
+<!-- Text input-->
+<div class="form-group required">
+  <label class="col-md-2 col-lg-2" for="term">Business Term Name</label>  
+  <div class="col-md-5 col-lg-5">
+  <input id="term" name="term" type="text" placeholder="" class="form-control input-md" required="">
+  </div>
+  <div class="col-md-5 col-lg-5">
+    <span class="help-block">The business term represents a concept or term within the business arena. A business term is a noun or noun phrase that is used in business communications and carries a particular meaning for the business and should be unambiguous given a particular context of usage.</span>  
+  </div>
+</div>
+
+<!-- Textarea input-->
+<div class="form-group required">
+  <label class="col-md-2 col-lg-2" for="deffinition">Definition</label>
+  <div class="col-md-5 col-lg-5">
+    <textarea id="deffinition" name="deffinition" class="form-control" rows="3" required=""></textarea>
+  </div>
+  <div class="col-md-5 col-lg-5">
+  <span class="help-block">The business term definition should be concise and reflect how the business talks about the concept represented.  The definition should correlate to the business term name.</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group required">
+  <label class="col-md-2 col-lg-2" for="source_def">Source of Definition</label>  
+  <div class="col-md-5 col-lg-5">
+  <input id="source_def" name="source_def" type="text" placeholder="" class="form-control input-md" required="">
+  </div>
+  <div class="col-md-5 col-lg-5">
+  <span class="help-block">Is there an existing external standard such as NCCI, WCIO, ISO or ACORD used to define the business term? Did an internal subject matter expert define the business term? Or was the business term defined by an internal GAIG task force?</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 col-lg-2" for="acronym">Related Acronym or Abbreviation</label>  
+  <div class="col-md-5 col-lg-5">
+  <input id="acronym" name="acronym" type="text" placeholder="" class="form-control input-md">
+  </div>
+  <div class="col-md-5 col-lg-5">
+  <span class="help-block">Does this business term have an acronym that is used to provide a shorthand method for reference?  If the acronym is not on the approved DSC list, it will be submitted as part of this process.</span>  
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-2 col-lg-2" for="secure_class">Security Classification</label>
+  <div class="col-md-5 col-lg-5">
+    <select id="secure_class" name="secure_class" class="form-control">
+      <option value="">None</option>
+      <option value="Internal">Internal</option>
+      <option value="Public">Public</option>
+      <option value="Confidential">Confidential</option>
+    </select>
+  </div>
+  <div class="col-md-5 col-lg-5">
+  <span class="help-block">Dictates appropriate handling of the business term in reports and other applications.<br>
+Acceptable values are:<br>
+- Internal:  Most information is internal and this is the default setting.<br>
+- Public:  Anything published for public consumption.<br>
+- Restricted: production data, user ID's<br>
+-Confidential: Social security numbers, PII info, unpublished financials.</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 col-lg-2" for="more_term">Other Term(s) Used</label>  
+  <div class="col-md-5 col-lg-5">
+  <input id="more_term" name="more_term" type="text" placeholder="" class="form-control input-md">
+  </div>
+  <div class="col-md-5 col-lg-5">
+  <span class="help-block">FILL</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 col-lg-2" for="samp_val">Sample Values</label>  
+  <div class="col-md-5 col-lg-5">
+  <input id="samp_val" name="samp_val" type="text" placeholder="" class="form-control input-md">
+  </div>
+  <div class="col-md-5 col-lg-5">
+  <span class="help-block">FILL</span>  
+  </div>
+</div>
+
+<!-- Textarea input-->
+<div class="form-group required">
+  <label class="col-md-2 col-lg-2" for="note">Notes</label>
+  <div class="col-md-5 col-lg-5">
+    <textarea id="note" name="note" class="form-control" rows="3" ></textarea>
+  </div>
+  <div class="col-md-5 col-lg-5">
+  <span class="help-block"></span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 col-lg-2" for="requester">Requested By</label>  
+  <div class="col-md-5 col-lg-5">
+  <input id="requester" name="requester" type="text" placeholder="" class="form-control input-md">
+  </div>
+  <div class="col-md-5 col-lg-5">
+  <span class="help-block">FILL</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 col-lg-2" for="method">Method Of Review</label>  
+  <div class="col-md-5 col-lg-5">
+  <input id="method" name="method" type="text" placeholder="" class="form-control input-md">
+  </div>
+  <div class="col-md-5 col-lg-5">
+  <span class="help-block">FILL</span>  
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-2 col-lg-2" for="status">Status of Item</label>
+  <div class="col-md-5 col-lg-5">
+    <select id="status" name="status" class="form-control">
+      <option value="New">New</option>
+      <option value="Approved">Approved</option>
+      <option value="Data Steward Review">Data Steward Review</option>
+    </select>
+  </div>
+  <div class="col-md-5 col-lg-5">
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-2 col-lg-2" for="submit">Submit</label>
+  <div class="col-md-5 col-lg-5">
+    <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+  </div>
+  <div class="col-md-5 col-lg-5">
+  </div>
+</div>
+
+</fieldset>
+</form>
+

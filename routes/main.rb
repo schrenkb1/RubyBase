@@ -5,23 +5,11 @@ module Sinatra
     module Routing
       module Main
 
-	class Person
-	  include Mongoid::Document
-	  field :first_name
-	  field :middle_name
-	  field :last_name
-          store_in collection: "item", database: 'map'
-	end
+    # Load Mongoid Models
+    require_relative '../models/person'
+    require_relative '../models/term'
 
-	class Term
-	  include Mongoid::Document
-	  field :ud_table
-	  field :ud_column
-	  field :status
-          store_in collection: "data", database: 'glossary'
-	end
-
-        def self.registered(app)
+     def self.registered(app)
 
 	  app.get '/' do
 	    @title = "Home Page"
@@ -44,16 +32,14 @@ module Sinatra
 	 
 	  app.get '/collections' do
   	    @values = Term.all
-            @title = "All Term Data"
-            erb :"pages/terms"
+        @title = "All Term Data"
+        erb :"pages/terms"
 	  end
 
-          app.get '/add' do
-            #@data = User.new
-            #(name: "Bob", email: "asdf@asd.com")
+      app.get '/add' do
 	    @title = "Add Data"
 	    erb :"pages/add_data"
-          end
+      end
 
 	  app.get '/documents/?' do
 	    content_type :json
@@ -63,17 +49,25 @@ module Sinatra
 	  end
 
 	  app.post '/new_document/?' do
-	    data = Term.new(ud_table: params['ud_table'],
-                                ud_column: params['ud_column'],
-                                status: params['status']
-                               )
+	    data = Term.new(term: params['term'],
+                            deffinition: params['deffinition'],
+                            source_def: params['source_def'],
+                            acronym: params['acronym'],
+                            secure_class: params['secure_class'],
+                            more_term: params['more_term'],
+                            samp_val: params['samp_val'],
+                            note: params['note'],
+                            requester: params['requester'],
+                            accept_dt: params['accept_dt'],
+                            method: params['method'],
+                            status: params['status']
+                            )
             data.save
-            puts params
             @title = 'Data Added'
 	    erb :"pages/convert"
 	  end
 
 	end
-      end
+    end
     end
 end

@@ -1,0 +1,36 @@
+
+<table class="table table-striped table-bordered">
+  <tr>
+    <th class="col-lg-2">Business Term Name</th>
+    <th class="col-lg-3">Definition</th>
+    <th>Source of Definition</th>
+    <th>Related Acronym or Abbreviation</th>
+    <th>Security Classification</th>
+    <th>Other Term(s) Used</th>
+    <th>Sample Values</th>
+    <th>Notes</th>
+    <th>Requested By</th>
+    <th>Accepted Date</th>
+    <th>Method of Review</th>
+    <th>Status</th>
+    <th>Mongo ID</th>
+  </tr>
+
+<% @values.each do |data| %>
+  <tr>
+    <td class="col-lg-2"><%= data.term %></td>
+    <td class="col-lg-3"><%= data.deffinition %></td>
+    <td><%= data.source_def %></td>
+    <td><%= data.acronym %></td>
+    <td><%= data.secure_class %></td>
+    <td><%= data.more_term %></td>
+    <td><%= data.samp_val %></td>
+    <td><%= data.note %></td>
+    <td><%= data.requester %></td>
+    <td><%= data.accept_dt %></td>
+    <td><%= data.method %></td>
+    <td><%= data.status %></td>
+    <td><%= data._id %></td>
+  </tr>
+<% end %>
+</table>
